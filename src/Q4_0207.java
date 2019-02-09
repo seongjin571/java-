@@ -24,7 +24,7 @@ class air{
 }
 public class Q4_0207 {
 
-    public static void main(String []args){
+        public static void main(String []args){
 
         air remote = new air();
         remote.powerControl();
