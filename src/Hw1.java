@@ -42,7 +42,7 @@ class function_deposit {
     }
 
     void input_deposit() {
-        int check=0;
+        int check = 0;
         HashMap getMap = new HashMap();
         System.out.println("-------");
         System.out.println("예금");
@@ -55,23 +55,22 @@ class function_deposit {
         getMap = (HashMap) list.get(0);
         for (int i = 0; i < list.size(); i++) {
             getMap = (HashMap) list.get(i);
-            if(getMap.get(1).equals(deposit_number)) {
+            if (getMap.get(1).equals(deposit_number)) {
                 int n = ((Integer) getMap.get(3)).intValue();
                 n += deposit_money;
                 getMap.put(3, n);
                 System.out.println("예금이 성공되었습니다.");
-                check=1;
+                check = 1;
                 break;
             }
         }
-        if(check==0)
+        if (check == 0)
             System.out.println("계좌번호를 잘못 입력하셨습니다.");
     }
 
 
-
-    void out_deposit() {
-        int check=0;
+    void out_deposit() throws AccountErrorException {
+        int check = 0;
         HashMap getMap = new HashMap();
         System.out.println("-------");
         System.out.println("출금");
@@ -83,45 +82,47 @@ class function_deposit {
         int deposit_money = new_deposit_data.nextInt();
         for (int i = 0; i < list.size(); i++) {
             getMap = (HashMap) list.get(i);
-            if(getMap.get(1).equals(deposit_number)) {
+            if (getMap.get(1).equals(deposit_number)) {
                 int n = ((Integer) getMap.get(3)).intValue();
+                if (n < deposit_money) {
+                    throw new AccountErrorException("예금 잔고가 부족합니다..");
+                }
                 n -= deposit_money;
                 getMap.put(3, n);
                 System.out.println("출금이 성공되었습니다.");
-                check=1;
+                check = 1;
             }
         }
-        if(check==0)
+
+        if (check == 0)
             System.out.println("계좌번호를 잘못 입력하셨습니다.");
     }
-
 }
-public class Hw1 {
-    public static void main(String []args) {
-        function_deposit control= new function_deposit();
-        while (true) {
 
-            System.out.println("-----------------------------------------------");
-            System.out.println("1.계좌생성 | 2.계좌목록 | 3.예금 | 4.출금 | 5.종료");
-            System.out.println("-----------------------------------------------");
-            System.out.println("선택>");
-            Scanner choice = new Scanner(System.in);
-            int choice_number = choice.nextInt();
-            if(choice_number==1) {
-                control.new_deposit();
+        public class Hw1 {
+            public static void main(String[] args) {
+                function_deposit control = new function_deposit();
+                while (true) {
+
+                    System.out.println("-----------------------------------------------");
+                    System.out.println("1.계좌생성 | 2.계좌목록 | 3.예금 | 4.출금 | 5.종료");
+                    System.out.println("-----------------------------------------------");
+                    System.out.println("선택>");
+                    Scanner choice = new Scanner(System.in);
+                    int choice_number = choice.nextInt();
+                    if (choice_number == 1) {
+                        control.new_deposit();
+                    } else if (choice_number == 2) {
+                        control.list_deposit();
+                    } else if (choice_number == 3)
+                        control.input_deposit();
+                    else if (choice_number == 4)
+                        control.out_deposit();
+                    if (choice_number == 5)
+                        break;
+                }
+                System.out.println("프로그램 종료");
             }
-            else if(choice_number==2) {
-                control.list_deposit();
-            }
-            else if(choice_number==3)
-                control.input_deposit();
-            else if(choice_number==4)
-                control.out_deposit();
-            if(choice_number==5)
-                break;
+
         }
-        System.out.println("프로그램 종료");
-    }
-
-}
 
