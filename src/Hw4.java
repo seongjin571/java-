@@ -1,4 +1,4 @@
-class StringStack implements Stack {
+class StringStack  implements Stack {
     Object stack="";
    public int length() {
         return stack.toString().length();

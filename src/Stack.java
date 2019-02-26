@@ -1,4 +1,4 @@
-interface Stack {
+interface Stack <E>{
     int length();
 
     Object pop();
