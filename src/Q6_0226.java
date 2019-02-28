@@ -41,22 +41,16 @@ public class Q6_0226 {
 
         System.out.println("합집합");
         list1.addAll(list2);
-        //1번
-//        for(Integer i : list1){
-//            set.add(list1.get(i));
-//        }
-        //2번
-//        for(int i=0; i<list1.size(); i++){
-//            set.add(list1.get(i));
-//        }
-        //출력
-        for(Integer i :set){
-            System.out.print(i+" ");
+        for(int i=0; i<list1.size(); i++){
+            set.add(list1.get(i));
         }
-//        Iterator<Integer> iterator = set.iterator();
-//        while(iterator.hasNext()){
-//            System.out.print(iterator.next()+" ");
-//        }
+        for(Integer i :set)
+            System.out.print(i+" ");
+        System.out.println("");
+        Iterator<Integer> iterator = set.iterator();
+        while(iterator.hasNext()){
+            System.out.print(iterator.next()+" ");
+        }
 
 
     }
