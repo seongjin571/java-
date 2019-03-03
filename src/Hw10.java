@@ -17,11 +17,11 @@ public class Hw10 {
         Set<Integer> set = new HashSet<>();
         int stringLength = string.length();
         int hideCount;
-        if(string.length()<=4)
-            hideCount=2;
+        if (string.length() <= 4)
+            hideCount = 2;
         else
-            hideCount=3;
-        while (set.size() != hideCount ) {
+            hideCount = 3;
+        while (set.size() != hideCount) {
             int setIndex = (int) (Math.random() * stringLength);
             set.add(setIndex);
         }
