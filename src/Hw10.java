@@ -21,14 +21,17 @@ public class Hw10 {
             hideCount = 2;
         else
             hideCount = 3;
+
         while (set.size() != hideCount) {
             int setIndex = (int) (Math.random() * stringLength);
             set.add(setIndex);
         }
+
         String[] stringArray = convert(string);
         for (int i : set) {
             stringArray[i] = "_";
         }
+
         String hidedString = String.join("", stringArray);
         return hidedString;
 
@@ -44,6 +47,7 @@ public class Hw10 {
             System.out.print(stringArray[i]);
         }
         System.out.println("");
+
         String middleString = String.join("", stringArray);
         return middleString;
     }
@@ -52,16 +56,16 @@ public class Hw10 {
         BufferedReader reader = null;
         List<String> stringText = new ArrayList<>();
         String text = null;
+
         try {
             reader = new BufferedReader(new FileReader("src/word.txt"));
             while ((text = reader.readLine()) != null) {
                 stringText.add(text);
             }
-
         } catch (Exception e) {
             e.printStackTrace();
         }
-//        int count = 1;
+
         Scanner scan = new Scanner(System.in);
         int listLength = stringText.size();
         int listIndex = (int) (Math.random() * listLength) + 1;
@@ -69,7 +73,9 @@ public class Hw10 {
 
         answerString = stringText.get(listIndex);
         String middleAnswer = hideString(answerString);
+        System.out.println("행맨 게임을 시작합니다.");
         System.out.println(middleAnswer);
+        System.out.print(">>");
 
 
         for (int i = 4; i >= 0; i--) {
@@ -81,15 +87,14 @@ public class Hw10 {
                     break;
                 } else
                     System.out.println(i + "번 남았습니다.");
+                System.out.print(">>");
             } else {
                 if (answerString.equals(middleAnswer)) {
                     System.out.println("정답입니다!");
                     break;
                 } else
-                    System.out.println("죽었습니다.");
+                    System.out.println("죽었습니다...정답은 " + answerString + "이였습니다.");
             }
-
-
         }
     }
 }
