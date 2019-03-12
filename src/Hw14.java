@@ -7,8 +7,7 @@ class WordGenerator extends Thread{
     public void run(){
         for(int i = 0; i < 9; i++){
             word.add(data[i]);
-//            System.out.println(data[i]);
-            try{
+             try{
                 Thread.sleep(2000);
             }catch (InterruptedException e){
                 e.printStackTrace();
@@ -22,8 +21,8 @@ public class Hw14 {
         Scanner scan = new Scanner(System.in);
         wg.start();
         while (true){
-            System.out.println(wg.word;
-            System.out.println("]");
+            System.out.println(wg.word);
+            System.out.print(">>");
             String name = scan.next();
             wg.word.remove(name);
         }
