@@ -45,7 +45,6 @@ class seat {
     }
 }
 
-
 public class Hw12 {
     public static void main(String[] args) {
         seat seatS = new seat("S");
