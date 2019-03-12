@@ -12,15 +12,15 @@ public class Hw11 {
         FileInputStream fis = new FileInputStream(in);
         FileOutputStream fos = new FileOutputStream(out);
 
-        byte [] buffer = new byte[1028];
+        byte[] buffer = new byte[1028];
         int input = -1;
-        int count =0;
-        int tenPercent = (int)fsize1/10;
+        int count = 0;
+        int tenPercent = (int) fsize1 / 10;
         int currentPercent = tenPercent;
-        while((input = fis.read(buffer)) != -1){
-            fos.write(buffer,0,input);
-            count+=1028;
-            if(currentPercent <= count) {
+        while ((input = fis.read(buffer)) != -1) {
+            fos.write(buffer, 0, input);
+            count += 1028;
+            if (currentPercent <= count) {
                 System.out.println("*");
                 currentPercent += tenPercent;
             }
