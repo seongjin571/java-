@@ -12,13 +12,13 @@ public class StudyMember {
 		this.name = name;
 		this.hometown = hometown;
 	}
-	public int getId(int id) {
+	public int getId() {
 		return id;
 	}
-	public String getName(String name) {
+	public String getName() {
 		return name;
 	}
-	public String getHometown(String hometown) {
+	public String getHometown() {
 		return hometown;
 	}
 	

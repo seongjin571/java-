@@ -9,6 +9,9 @@ public class JdbcPractice {
 		StudyMemberDao smDao = new StudyMemberDao();
 		StudyMember sm = smDao.getId(member);
 		System.out.println(sm);
+		
+		StudyMember sm2 = new StudyMember(5,"jungwhan","suwon");
+		smDao.addMember(sm2);
 	}
 	
 }
