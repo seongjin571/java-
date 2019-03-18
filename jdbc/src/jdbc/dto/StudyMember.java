@@ -4,7 +4,7 @@ public class StudyMember {
 	private int id;
 	private String name;
 	private String hometown;
-	StudyMember(){
+	public StudyMember(){
 		
 	}
 	public StudyMember(int id, String name, String hometown){
